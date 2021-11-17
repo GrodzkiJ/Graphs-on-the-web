@@ -13,6 +13,8 @@ body
     min-height: 480px;
     margin: 25px;
     float: left;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Interfejs
@@ -23,6 +25,8 @@ body
     min-height: 480px;
     margin: 25px;
     float: left;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Wybor_danych
@@ -32,6 +36,8 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Serie_danych
@@ -41,6 +47,8 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Typ_wykresu
@@ -50,6 +58,8 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Kolor_wykresu
@@ -59,6 +69,8 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Znaczniki_wykresu
@@ -68,6 +80,8 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Przedzial
@@ -77,6 +91,8 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Rysuj_wykres
@@ -86,4 +102,19 @@ body
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
+
+button
+{
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+select
+{
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
 }
