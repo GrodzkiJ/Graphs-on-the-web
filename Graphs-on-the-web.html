@@ -17,19 +17,23 @@
 		<div id="Wykres"></div>
 	</div>
 	<div id="Interfejs">
+		<div id="Tytul_X">
+			<input type="text" id="title_x" size="10">
+		</div>
+		<div id="Tytul_Y">
+			<input type="text" id="title_y" size="10">
+		</div>
 		<div id="Wybor_danych">
 			<input type="file">
 		</div>
-		<div id="Serie_danych"></div>
 		<div id="Przedzial">
 			<span style="float: left;">
-				<input type="text" id="from" size="6">
+				<input type="text" id="from" size="6" style="margin-bottom: 5px;">
 			</span>
 			<span style="float: right;"">
 				<input type=" text" id="to" size="6">
 			</span>
 		</div>
-		<div id="Przedzial"></div>
 		<div id="Typ_wykresu">
 			<select id="Typy" onchange="getValue('Typy');">
 				<option value="line">Liniowy</option>

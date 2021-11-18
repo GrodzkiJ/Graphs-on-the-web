@@ -19,31 +19,44 @@ body
 
 #Interfejs
 {
-    width: 210px;
-    height: 510px;
-    min-width: 210px;
-    min-height: 510px;
+    width: 255px;
+    height: 540px;
+    min-width: 255px;
+    min-height: 540px;
     margin: 25px;
     float: left;
     border: 3px solid gray;
     border-radius: 15px;
 }
 
-#Wybor_danych
+#Tytul_X
 {
-    width: 160px;
+    width: 200px;
     height: 30px;
     min-width: 160px;
     min-height: 30px;
+    display: grid;
     margin: 25px;
     border: 3px solid gray;
     border-radius: 15px;
 }
 
-#Serie_danych
+#Tytul_Y
 {
-    width: 160px;
+    width: 200px;
     height: 30px;
+    min-width: 160px;
+    min-height: 30px;
+    display: grid;
+    margin: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
+
+#Wybor_danych
+{
+    width: 200px;
+    height: 44px;
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
@@ -53,7 +66,7 @@ body
 
 #Typ_wykresu
 {
-    width: 160px;
+    width: 200px;
     height: 30px;
     min-width: 160px;
     min-height: 30px;
@@ -65,7 +78,7 @@ body
 
 #Kolor_wykresu
 {
-    width: 160px;
+    width: 200px;
     height: 30px;
     min-width: 160px;
     min-height: 30px;
@@ -77,7 +90,7 @@ body
 
 #Znaczniki_wykresu
 {
-    width: 160px;
+    width: 200px;
     height: 30px;
     min-width: 160px;
     min-height: 30px;
@@ -89,8 +102,8 @@ body
 
 #Przedzial
 {
-    width: 160px;
-    height: 30px;
+    width: 200px;
+    height: 44px;
     min-width: 160px;
     min-height: 30px;
     margin: 25px;
@@ -100,7 +113,7 @@ body
 
 #Rysuj_wykres
 {
-    width: 160px;
+    width: 200px;
     height: 30px;
     min-width: 160px;
     min-height: 30px;
