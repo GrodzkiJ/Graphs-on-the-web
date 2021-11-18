@@ -21,7 +21,7 @@
 		<div id="Serie_danych"></div>
 		<div id="Przedzial"></div>
 		<div id="Typ_wykresu" style="display: grid;">
-			<select>
+			<select id="Typy" onchange="getValue('Typy');">
 				<option value="line">Liniowy</option>
 				<option value="dot">Punktowy</option>
 				<option value="bar">Słupkowy</option>
@@ -29,7 +29,7 @@
 			</select>
 		</div>
 		<div id="Kolor_wykresu" style="display: grid;">
-			<select>
+			<select id="Kolory" onchange="getValue('Kolory');">
 				<option value="black">Czarny</option>
 				<option value="red">Czerwony</option>
 				<option value="blue">Niebieski</option>
@@ -37,7 +37,7 @@
 			</select>
 		</div>
 		<div id="Znaczniki_wykresu" style="display: grid;">
-			<select>
+			<select id="Znaczniki" onchange="getValue('Znaczniki');">
 				<option value="crosses">Krzyżyki</option>
 				<option value="dots">Kropki</option>
 				<option value="circles">Kółka</option>
