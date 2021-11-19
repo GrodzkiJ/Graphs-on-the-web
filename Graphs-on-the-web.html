@@ -17,15 +17,23 @@
 		<div id="Wykres"></div>
 	</div>
 	<div id="Interfejs">
+		<label style="font-size: 18px;">Tytuł wykresu</label>
+		<div id="Tytul">
+			<input type="text" id="title" size="10" onpointerleave="setTitle('Tytul_wykresu', getValue('title'));">
+		</div>
+		<label style="font-size: 18px;">Tytuł osi X</label>
 		<div id="Tytul_X">
 			<input type="text" id="title_x" size="10" onpointerleave="setTitle('Tytul_osi_X', getValue('title_x'));">
 		</div>
+		<label style="font-size: 18px;">Tytuł osi Y</label>
 		<div id="Tytul_Y">
 			<input type="text" id="title_y" size="10" onpointerleave="setTitle('Tytul_osi_Y', getValue('title_y'));">
 		</div>
+		<label style="font-size: 18px;">Wybór danych</label>
 		<div id="Wybor_danych">
 			<input type="file">
 		</div>
+		<label style="font-size: 18px;">Przedział wyświetlania</label>
 		<div id="Przedzial">
 			<span style="float: left;">
 				<input type="text" id="from" size="6" style="margin-bottom: 5px;">
@@ -34,6 +42,7 @@
 				<input type=" text" id="to" size="6">
 			</span>
 		</div>
+		<label style="font-size: 18px;">Typ wykresu</label>
 		<div id="Typ_wykresu">
 			<select id="Typy" onchange="getValue('Typy');">
 				<option value="line">Liniowy</option>
@@ -42,6 +51,7 @@
 				<option value="circle">Kołowy</option>
 			</select>
 		</div>
+		<label style="font-size: 18px;">Kolor wykresu</label>
 		<div id="Kolor_wykresu">
 			<select id="Kolory" onchange="getValue('Kolory');">
 				<option value="black">Czarny</option>
@@ -50,6 +60,7 @@
 				<option value="green">Zielony</option>
 			</select>
 		</div>
+		<label style="font-size: 18px;">Znaczniki wykresu</label>
 		<div id="Znaczniki_wykresu">
 			<select id='Znaczniki' onchange="getValue('Znaczniki');">
 				<option value="crosses">Krzyżyki</option>
