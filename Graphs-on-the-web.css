@@ -17,6 +17,20 @@ body
     border-radius: 15px;
 }
 
+#Tytul_osi_X
+{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+#Tytul_osi_Y
+{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
 #Interfejs
 {
     width: 255px;
