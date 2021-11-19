@@ -33,9 +33,20 @@ body
 
 #Tytul_osi_Y
 {
-    text-align: center;
+    float: left;
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
+}
+
+#Wykres
+{
+    width: 900px;
+    height: 600px;
+    min-width: 900px;
+    min-height: 600px;
+    float: right;
+    border: 3px solid gray;
+    border-radius: 15px;
 }
 
 #Interfejs
