@@ -2,7 +2,7 @@ body
 {
 	background-color: #323232;
 	color: #efefef;
-	font-size: 28px;
+    font-size: 28px;
 }
 
 #Wizualizacja
@@ -11,7 +11,6 @@ body
     height: 710px;
     min-width: 640px;
     min-height: 480px;
-    display: grid;
     margin: 25px;
     float: left;
     border: 3px solid gray;
@@ -37,7 +36,6 @@ body
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
-    transform: rotate(270deg);
 }
 
 #Interfejs
