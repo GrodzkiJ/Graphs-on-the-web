@@ -8,9 +8,9 @@ body
 #Wizualizacja
 {
     width: 1024px;
-    height: 710px;
-    min-width: 640px;
-    min-height: 480px;
+    height: 686px;
+    max-width: 1024px;
+    max-height: 686px;
     margin: 25px;
     float: left;
     border: 3px solid gray;
@@ -19,6 +19,8 @@ body
 
 #Tytul_wykresu
 {
+    width: 1024px;
+    height: 40px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 24px;
@@ -26,6 +28,8 @@ body
 
 #Tytul_osi_X
 {
+    width: 1024px;
+    height: 25px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
@@ -33,6 +37,11 @@ body
 
 #Tytul_osi_Y
 {
+    width: 25px;
+    max-width: 25px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
     float: left;
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
@@ -40,10 +49,10 @@ body
 
 #Wykres
 {
-    width: 900px;
-    height: 600px;
-    min-width: 900px;
-    min-height: 600px;
+    width: 990px;
+    height: 615px;
+    min-width: 990px;
+    min-height: 615px;
     float: right;
     border: 3px solid gray;
     border-radius: 15px;
