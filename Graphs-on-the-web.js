@@ -32,7 +32,6 @@ function draw(typ_wykresu) {
         });
     }
     else if (typ == "dot") {
-        const CHART = document.getElementById("myChart");
         dotChart = new Chart(CHART, {
             type: 'scatter',
             data: {
@@ -65,7 +64,6 @@ function draw(typ_wykresu) {
         })
     }
     else if (typ == "bar") {
-        const CHART = document.getElementById("myChart");
         barChart = new Chart(CHART, {
             type: 'bar',
             data: {
@@ -97,7 +95,6 @@ function draw(typ_wykresu) {
         });
     }
     else if (typ == "circle") {
-        const CHART = document.getElementById("myChart");
         pieChart = new Chart(CHART, {
             type: 'pie',
             data: {
