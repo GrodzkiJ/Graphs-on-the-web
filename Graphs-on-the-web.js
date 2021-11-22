@@ -24,8 +24,22 @@ let wykres = new Chart(CHART, {
     }
 });
 
-function draw(typ_wykresu) {
+function draw(typ_wykresu, znaczniki, kolory) {
     var typ = getValue(typ_wykresu);
+    var znacznik = getValue(znaczniki);
+    var kolor = getValue(kolory);
+    if (kolor == "black") {
+        kolor = 'rgb(0, 0, 0)';
+    }
+    else if (kolor == "red") {
+        kolor = 'rgb(255, 0, 0)';
+    }
+    else if (kolor == "green") {
+        kolor = 'rgb(0, 255, 0)';
+    }
+    else if (kolor == "blue") {
+        kolor = 'rgb(0, 0, 255)';
+    }
     const CHART = document.getElementById("myChart");
     wykres.destroy();
     if (typ == "line") {
@@ -38,8 +52,9 @@ function draw(typ_wykresu) {
                         label: 'My First Dataset',
                         data: [65, 59, 80, 81, 56, 55, 40, 50],
                         fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
+                        borderColor: kolor,
+                        tension: 0.1,
+                        pointStyle: znacznik
                     }
                 ]
             }
@@ -64,7 +79,8 @@ function draw(typ_wykresu) {
                         x: 0.5,
                         y: 5.5
                     }],
-                    backgroundColor: 'rgb(255, 99, 132)'
+                    borderColor: kolor,
+                    pointStyle: znacznik
                 }]
             },
             options: {

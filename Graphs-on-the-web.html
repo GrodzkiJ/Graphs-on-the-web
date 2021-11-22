@@ -70,13 +70,13 @@
 		<label style="font-size: 18px;">Znaczniki wykresu</label>
 		<div id="Znaczniki_wykresu">
 			<select id='Znaczniki' onchange="getValue('Znaczniki');">
-				<option value="crosses">Krzyżyki</option>
-				<option value="dots">Kropki</option>
-				<option value="circles">Kółka</option>
+				<option value="cross">Krzyżyki</option>
+				<option value="rect">Prostokąty</option>
+				<option value="circle">Kółka</option>
 			</select>
 		</div>
 		<div id="Rysuj_wykres">
-			<button type="button" onclick="draw('Typy');">Rysuj</button>
+			<button type="button" onclick="draw('Typy', 'Znaczniki', 'Kolory');">Rysuj</button>
 		</div>
 	</div>
 
