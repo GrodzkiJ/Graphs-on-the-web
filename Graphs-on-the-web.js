@@ -7,15 +7,29 @@ function setTitle(nazwa, tytul) {
     document.getElementById(nazwa).innerHTML = tytul;
 }
 
+const CHART = document.getElementById("myChart");
+let wykres = new Chart(CHART, {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August"],
+        datasets: [
+            {
+                label: 'My First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40, 50],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }
+        ]
+    }
+});
+
 function draw(typ_wykresu) {
     var typ = getValue(typ_wykresu);
     const CHART = document.getElementById("myChart");
-    let lineChart;
-    let dotChart;
-    let pieChart;
-    let barChart;
+    wykres.destroy();
     if (typ == "line") {
-        lineChart = new Chart(CHART, {
+        wykres = new Chart(CHART, {
             type: 'line',
             data: {
                 labels: ["January", "February", "March", "April", "May", "June", "July", "August"],
@@ -32,7 +46,7 @@ function draw(typ_wykresu) {
         });
     }
     else if (typ == "dot") {
-        dotChart = new Chart(CHART, {
+        wykres = new Chart(CHART, {
             type: 'scatter',
             data: {
                 datasets: [{
@@ -64,7 +78,7 @@ function draw(typ_wykresu) {
         })
     }
     else if (typ == "bar") {
-        barChart = new Chart(CHART, {
+        wykres = new Chart(CHART, {
             type: 'bar',
             data: {
                 labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -95,7 +109,7 @@ function draw(typ_wykresu) {
         });
     }
     else if (typ == "circle") {
-        pieChart = new Chart(CHART, {
+        wykres = new Chart(CHART, {
             type: 'pie',
             data: {
                 labels: [
