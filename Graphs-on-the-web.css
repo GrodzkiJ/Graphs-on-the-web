@@ -61,7 +61,7 @@ body
 #Interfejs
 {
     width: 255px;
-    height: 710px;
+    height: 910px;
     min-width: 255px;
     min-height: 540px;
     margin: 25px;
@@ -102,6 +102,36 @@ body
 }
 
 #Tytul_Y
+{
+    width: 200px;
+    height: 30px;
+    min-width: 160px;
+    min-height: 30px;
+    display: grid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
+
+#Wspolrzedna_X
+{
+    width: 200px;
+    height: 30px;
+    min-width: 160px;
+    min-height: 30px;
+    display: grid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
+
+#Wspolrzedna_Y
 {
     width: 200px;
     height: 30px;
@@ -190,6 +220,21 @@ body
 }
 
 #Rysuj_wykres
+{
+    width: 200px;
+    height: 30px;
+    min-width: 160px;
+    min-height: 30px;
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
+
+#Wyczysc_dane
 {
     width: 200px;
     height: 30px;

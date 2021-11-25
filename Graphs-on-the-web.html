@@ -6,6 +6,7 @@
 	<title>Graphs</title>
 	<link rel="stylesheet" href="Graphs-on-the-web.css" type="text/css" />
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="Graphs-on-the-web.js"></script>
 </head>
 
@@ -39,6 +40,14 @@
 		<label style="font-size: 18px;">Wybór danych</label>
 		<div id="Wybor_danych">
 			<input type="file">
+		</div>
+		<label style="font-size: 18px;">Współrzędna X</label>
+		<div id="Wspolrzedna_X">
+			<input type="text" id="coordinate_x" size="10">
+		</div>
+		<label style="font-size: 18px;">Współrzędna Y</label>
+		<div id="Wspolrzedna_Y">
+			<input type="text" id="coordinate_y" size="10">
 		</div>
 		<label style="font-size: 18px;">Przedział wyświetlania</label>
 		<div id="Przedzial">
@@ -76,7 +85,12 @@
 			</select>
 		</div>
 		<div id="Rysuj_wykres">
-			<button type="button" onclick="draw('Typy', 'Znaczniki', 'Kolory');">Rysuj</button>
+			<button type="button"
+				onclick="draw('Typy', 'Znaczniki', 'Kolory', 'coordinate_x', 'coordinate_y');">Rysuj</button>
+		</div>
+		<div id="Wyczysc_dane">
+			<button type="button" onclick="wyczysc_dane();">Wyczyść
+				dane</button>
 		</div>
 	</div>
 

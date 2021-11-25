@@ -24,10 +24,30 @@ let wykres = new Chart(CHART, {
     }
 });
 
-function draw(typ_wykresu, znaczniki, kolory) {
+dataset = [];
+label = [];
+
+function dodaj_x(x) {
+    var dana = getValue(x);
+    label.push(dana);
+}
+
+function dodaj_y(y) {
+    var dana = getValue(y);
+    dataset.push(dana);
+}
+
+function wyczysc_dane() {
+    label = [];
+    dataset = [];
+}
+
+function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
     var typ = getValue(typ_wykresu);
     var znacznik = getValue(znaczniki);
     var kolor = getValue(kolory);
+    dodaj_x(coor_x);
+    dodaj_y(coor_y);
     if (kolor == "black") {
         kolor = 'rgb(0, 0, 0)';
     }
@@ -46,11 +66,11 @@ function draw(typ_wykresu, znaczniki, kolory) {
         wykres = new Chart(CHART, {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July", "August"],
+                labels: label,
                 datasets: [
                     {
                         label: 'My First Dataset',
-                        data: [65, 59, 80, 81, 56, 55, 40, 50],
+                        data: dataset,
                         fill: false,
                         borderColor: kolor,
                         tension: 0.1,
@@ -97,10 +117,10 @@ function draw(typ_wykresu, znaczniki, kolory) {
         wykres = new Chart(CHART, {
             type: 'bar',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: label,
                 datasets: [{
                     label: 'My First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: dataset,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(255, 159, 64, 0.2)',
