@@ -11,8 +11,8 @@
 </head>
 
 <body>
-
-	<div id="Wizualizacja" style="display: grid;">
+	<!--
+		<div id="Wizualizacja" style="display: grid;">
 		<div id="Tytul_wykresu"></div>
 		<div>
 			<div>
@@ -23,6 +23,10 @@
 			</div>
 		</div>
 		<div id="Tytul_osi_X"></div>
+	</div>
+	-->
+	<div id="Wizualizacja" style="display: grid;">
+		<canvas id="myChart" width="400" height="400"></canvas>
 	</div>
 	<div id="Interfejs">
 		<label style="font-size: 18px;">Tytuł wykresu</label>
@@ -37,10 +41,16 @@
 		<div id="Tytul_Y">
 			<input type="text" id="title_y" size="10" onpointerleave="setTitle('Tytul_osi_Y', getValue('title_y'));">
 		</div>
+		<label style="font-size: 18px;">Nazwa zbioru danych</label>
+		<div id="Tytul_zbioru_danych">
+			<input type="text" id="title_dataset" size="10">
+		</div>
+		<!--
 		<label style="font-size: 18px;">Wybór danych</label>
 		<div id="Wybor_danych">
 			<input type="file">
 		</div>
+		-->
 		<label style="font-size: 18px;">Współrzędna X</label>
 		<div id="Wspolrzedna_X">
 			<input type="text" id="coordinate_x" size="10">
@@ -86,7 +96,7 @@
 		</div>
 		<div id="Rysuj_wykres">
 			<button type="button"
-				onclick="draw('Typy', 'Znaczniki', 'Kolory', 'coordinate_x', 'coordinate_y');">Rysuj</button>
+				onclick="draw('Typy', 'Znaczniki', 'Kolory', 'title', 'title_dataset', 'title_x', 'title_y', 'coordinate_x', 'coordinate_y');">Rysuj</button>
 		</div>
 		<div id="Wyczysc_dane">
 			<button type="button" onclick="wyczysc_dane();">Wyczyść

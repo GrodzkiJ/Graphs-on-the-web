@@ -42,10 +42,14 @@ function wyczysc_dane() {
     dataset = [];
 }
 
-function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
+function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, title_x, title_y, coor_x, coor_y) {
     var typ = getValue(typ_wykresu);
     var znacznik = getValue(znaczniki);
     var kolor = getValue(kolory);
+    var tytul = getValue(tytul_wykresu);
+    var tytul_danych = getValue(tytul_dataset);
+    var tytul_x = getValue(title_x);
+    var tytul_y = getValue(title_y);
     dodaj_x(coor_x);
     dodaj_y(coor_y);
     if (kolor == "black") {
@@ -69,7 +73,7 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
                 labels: label,
                 datasets: [
                     {
-                        label: 'My First Dataset',
+                        label: tytul_danych,
                         data: dataset,
                         fill: false,
                         borderColor: kolor,
@@ -77,6 +81,44 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
                         pointStyle: znacznik
                     }
                 ]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        title: {
+                            display: true,
+                            text: tytul,
+                            font: {
+                                size: 24,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_x,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_y,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                }
             }
         });
     }
@@ -85,7 +127,7 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
             type: 'scatter',
             data: {
                 datasets: [{
-                    label: 'Scatter Dataset',
+                    label: tytul_danych,
                     data: [{
                         x: -10,
                         y: 0
@@ -107,7 +149,39 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
                 scales: {
                     x: {
                         type: 'linear',
-                        position: 'bottom'
+                        position: 'bottom',
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_x,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_y,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        title: {
+                            display: true,
+                            text: tytul,
+                            font: {
+                                size: 24,
+                                family: "Arial"
+                            }
+                        }
                     }
                 }
             }
@@ -119,7 +193,7 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
             data: {
                 labels: label,
                 datasets: [{
-                    label: 'My First Dataset',
+                    label: tytul_danych,
                     data: dataset,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -141,6 +215,44 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
                     ],
                     borderWidth: 1
                 }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        title: {
+                            display: true,
+                            text: tytul,
+                            font: {
+                                size: 24,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_x,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_y,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                }
             }
         });
     }
@@ -154,7 +266,7 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
                     'Yellow'
                 ],
                 datasets: [{
-                    label: 'My First Dataset',
+                    label: tytul_danych,
                     data: [300, 50, 100],
                     backgroundColor: [
                         'rgb(255, 99, 132)',
@@ -163,6 +275,44 @@ function draw(typ_wykresu, znaczniki, kolory, coor_x, coor_y) {
                     ],
                     hoverOffset: 4
                 }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        title: {
+                            display: true,
+                            text: tytul,
+                            font: {
+                                size: 24,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_x,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: tytul_y,
+                            font: {
+                                size: 18,
+                                family: "Arial"
+                            }
+                        }
+                    }
+                }
             }
         });
     }
