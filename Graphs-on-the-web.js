@@ -28,13 +28,18 @@ dataset = [];
 label = [];
 
 function dodaj_x(x) {
+    console.log(dataset);
     var dana = getValue(x);
-    label.push(dana);
+    if (dana != " ") {
+        label.push(dana);
+    }
 }
 
 function dodaj_y(y) {
     var dana = getValue(y);
-    dataset.push(dana);
+    if (dana != " ") {
+        dataset.push(dana);
+    }
 }
 
 function wyczysc_dane() {
@@ -65,255 +70,273 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
         kolor = 'rgb(0, 0, 255)';
     }
     const CHART = document.getElementById("myChart");
-    wykres.destroy();
-    if (typ == "line") {
-        wykres = new Chart(CHART, {
-            type: 'line',
-            data: {
-                labels: label,
-                datasets: [
-                    {
+    var rysuj = true;
+    var zmienna1 = true;
+    var zmienna2 = true;
+    for (var i = 0; i < dataset.length; i++) {
+        if (dataset[i] == "") {
+            zmienna1 = false;
+        }
+    }
+    for (var i = 0; i < label.length; i++) {
+        if (label[i] == "") {
+            zmienna2 = false;
+        }
+    }
+    if (zmienna1 == false || zmienna2 == false) {
+        rysuj = false;
+    }
+    if (rysuj == true) {
+        wykres.destroy();
+        if (typ == "line") {
+            wykres = new Chart(CHART, {
+                type: 'line',
+                data: {
+                    labels: label,
+                    datasets: [
+                        {
+                            label: tytul_danych,
+                            data: dataset,
+                            fill: false,
+                            borderColor: kolor,
+                            tension: 0.1,
+                            pointStyle: znacznik
+                        }
+                    ]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            title: {
+                                display: true,
+                                text: tytul,
+                                font: {
+                                    size: 24,
+                                    family: "Arial"
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: tytul_x,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: tytul_y,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        else if (typ == "dot") {
+            wykres = new Chart(CHART, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: tytul_danych,
+                        data: [{
+                            x: -10,
+                            y: 0
+                        }, {
+                            x: 0,
+                            y: 10
+                        }, {
+                            x: 10,
+                            y: 5
+                        }, {
+                            x: 0.5,
+                            y: 5.5
+                        }],
+                        borderColor: kolor,
+                        pointStyle: znacznik
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            display: true,
+                            title: {
+                                display: true,
+                                text: tytul_x,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: tytul_y,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            title: {
+                                display: true,
+                                text: tytul,
+                                font: {
+                                    size: 24,
+                                    family: "Arial"
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        else if (typ == "bar") {
+            wykres = new Chart(CHART, {
+                type: 'bar',
+                data: {
+                    labels: label,
+                    datasets: [{
                         label: tytul_danych,
                         data: dataset,
-                        fill: false,
-                        borderColor: kolor,
-                        tension: 0.1,
-                        pointStyle: znacznik
-                    }
-                ]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        title: {
-                            display: true,
-                            text: tytul,
-                            font: {
-                                size: 24,
-                                family: "Arial"
-                            }
-                        }
-                    }
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(255, 205, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(255, 159, 64)',
+                            'rgb(255, 205, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(54, 162, 235)',
+                            'rgb(153, 102, 255)',
+                            'rgb(201, 203, 207)'
+                        ],
+                        borderWidth: 1
+                    }]
                 },
-                scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: tytul_x,
-                            font: {
-                                size: 18,
-                                family: "Arial"
+                options: {
+                    plugins: {
+                        legend: {
+                            title: {
+                                display: true,
+                                text: tytul,
+                                font: {
+                                    size: 24,
+                                    family: "Arial"
+                                }
                             }
                         }
                     },
-                    y: {
-                        display: true,
-                        title: {
+                    scales: {
+                        x: {
                             display: true,
-                            text: tytul_y,
-                            font: {
-                                size: 18,
-                                family: "Arial"
+                            title: {
+                                display: true,
+                                text: tytul_x,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: tytul_y,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
-    }
-    else if (typ == "dot") {
-        wykres = new Chart(CHART, {
-            type: 'scatter',
-            data: {
-                datasets: [{
-                    label: tytul_danych,
-                    data: [{
-                        x: -10,
-                        y: 0
-                    }, {
-                        x: 0,
-                        y: 10
-                    }, {
-                        x: 10,
-                        y: 5
-                    }, {
-                        x: 0.5,
-                        y: 5.5
-                    }],
-                    borderColor: kolor,
-                    pointStyle: znacznik
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        type: 'linear',
-                        position: 'bottom',
-                        display: true,
-                        title: {
-                            display: true,
-                            text: tytul_x,
-                            font: {
-                                size: 18,
-                                family: "Arial"
-                            }
-                        }
-                    },
-                    y: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: tytul_y,
-                            font: {
-                                size: 18,
-                                family: "Arial"
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        title: {
-                            display: true,
-                            text: tytul,
-                            font: {
-                                size: 24,
-                                family: "Arial"
-                            }
-                        }
-                    }
-                }
-            }
-        })
-    }
-    else if (typ == "bar") {
-        wykres = new Chart(CHART, {
-            type: 'bar',
-            data: {
-                labels: label,
-                datasets: [{
-                    label: tytul_danych,
-                    data: dataset,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
+            });
+        }
+        else if (typ == "circle") {
+            wykres = new Chart(CHART, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'Red',
+                        'Blue',
+                        'Yellow'
                     ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        title: {
-                            display: true,
-                            text: tytul,
-                            font: {
-                                size: 24,
-                                family: "Arial"
-                            }
-                        }
-                    }
+                    datasets: [{
+                        label: tytul_danych,
+                        data: [300, 50, 100],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)'
+                        ],
+                        hoverOffset: 4
+                    }]
                 },
-                scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: tytul_x,
-                            font: {
-                                size: 18,
-                                family: "Arial"
+                options: {
+                    plugins: {
+                        legend: {
+                            title: {
+                                display: true,
+                                text: tytul,
+                                font: {
+                                    size: 24,
+                                    family: "Arial"
+                                }
                             }
                         }
                     },
-                    y: {
-                        display: true,
-                        title: {
+                    scales: {
+                        x: {
                             display: true,
-                            text: tytul_y,
-                            font: {
-                                size: 18,
-                                family: "Arial"
+                            title: {
+                                display: true,
+                                text: tytul_x,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: tytul_y,
+                                font: {
+                                    size: 18,
+                                    family: "Arial"
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
-    }
-    else if (typ == "circle") {
-        wykres = new Chart(CHART, {
-            type: 'pie',
-            data: {
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
-                ],
-                datasets: [{
-                    label: tytul_danych,
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
-                    ],
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        title: {
-                            display: true,
-                            text: tytul,
-                            font: {
-                                size: 24,
-                                family: "Arial"
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: tytul_x,
-                            font: {
-                                size: 18,
-                                family: "Arial"
-                            }
-                        }
-                    },
-                    y: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: tytul_y,
-                            font: {
-                                size: 18,
-                                family: "Arial"
-                            }
-                        }
-                    }
-                }
-            }
-        });
+            });
+        }
     }
 }
