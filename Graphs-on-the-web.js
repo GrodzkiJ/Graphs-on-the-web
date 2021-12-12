@@ -28,7 +28,6 @@ dataset = [];
 label = [];
 
 function dodaj_x(x) {
-    console.log(dataset);
     var dana = getValue(x);
     if (dana != " ") {
         label.push(dana);
@@ -45,6 +44,11 @@ function dodaj_y(y) {
 function wyczysc_dane() {
     label = [];
     dataset = [];
+}
+
+function usun_ostatni_rekord() {
+    label.pop();
+    dataset.pop();
 }
 
 function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, title_x, title_y, coor_x, coor_y) {
@@ -85,6 +89,7 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
     }
     if (zmienna1 == false || zmienna2 == false) {
         rysuj = false;
+        alert("Usuń puste rekordy!");
     }
     if (rysuj == true) {
         wykres.destroy();

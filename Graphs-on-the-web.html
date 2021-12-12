@@ -89,18 +89,20 @@
 		<label style="font-size: 18px;">Znaczniki wykresu</label>
 		<div id="Znaczniki_wykresu">
 			<select id='Znaczniki' onchange="getValue('Znaczniki');">
+				<option value="circle">Kółka</option>
 				<option value="cross">Krzyżyki</option>
 				<option value="rect">Prostokąty</option>
-				<option value="circle">Kółka</option>
 			</select>
 		</div>
 		<div id="Rysuj_wykres">
 			<button type="button"
 				onclick="draw('Typy', 'Znaczniki', 'Kolory', 'title', 'title_dataset', 'title_x', 'title_y', 'coordinate_x', 'coordinate_y');">Rysuj</button>
 		</div>
+		<div id="Usun_ostatni_rekord">
+			<button type="button" onclick="usun_ostatni_rekord();">Usuń ostatni rekord</button>
+		</div>
 		<div id="Wyczysc_dane">
-			<button type="button" onclick="wyczysc_dane();">Wyczyść
-				dane</button>
+			<button type="button" onclick="wyczysc_dane();">Wyczyść dane</button>
 		</div>
 	</div>
 
