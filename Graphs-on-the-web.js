@@ -155,19 +155,7 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
                 data: {
                     datasets: [{
                         label: tytul_danych,
-                        data: [{
-                            x: -10,
-                            y: 0
-                        }, {
-                            x: 0,
-                            y: 10
-                        }, {
-                            x: 10,
-                            y: 5
-                        }, {
-                            x: 0.5,
-                            y: 5.5
-                        }],
+                        data: [],
                         borderColor: kolor,
                         pointStyle: znacznik
                     }]
