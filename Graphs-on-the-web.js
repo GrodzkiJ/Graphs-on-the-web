@@ -203,7 +203,7 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
                 data: {
                     datasets: [{
                         label: tytul_danych,
-                        data: dataset,
+                        data: dataset_punktowy,
                         borderColor: kolor,
                         pointStyle: znacznik
                     }]
