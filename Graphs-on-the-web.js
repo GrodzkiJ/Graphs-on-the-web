@@ -24,21 +24,71 @@ let wykres = new Chart(CHART, {
     }
 });
 
+dataset_punktowy = [];
 dataset = [];
 label = [];
+temp_dataset_punktowy = [];
+temp_dataset = [];
+temp_label = [];
 
-function dodaj_x(x) {
-    var dana = getValue(x);
-    if (dana != " ") {
-        label.push(dana);
+function zmiana_zakresu(dol, gora) {
+    var zakres_dolny = getValue(dol);
+    var zakres_gorny = getValue(gora);
+    if (zakres_dolny == "" || zakres_gorny == "") {
+        if (zakres_gorny == "" && zakres_dolny != "") {
+            for (i = 0; i < label.length; i++) {
+                if (label[i] < zakres_dolny) {
+                    label.splice(i, 1);
+                    dataset.splice(i, 1);
+                    dataset_punktowy.splice(i, 1);
+                }
+            }
+        }
+        if (zakres_gorny != "" && zakres_dolny == "") {
+            for (i = 0; i < label.length; i++) {
+                if (label[i] > zakres_gorny) {
+                    label.splice(i, 1);
+                    dataset.splice(i, 1);
+                    dataset_punktowy.splice(i, 1);
+                }
+            }
+        }
+    }
+    else {
+        for (i = 0; i < label.length; i++) {
+            if (label[i] < zakres_dolny || label[i] > zakres_gorny) {
+                label.splice(i, 1);
+                dataset.splice(i, 1);
+                dataset_punktowy.splice(i, 1);
+            }
+        }
     }
 }
 
-function dodaj_y(y) {
-    var dana = getValue(y);
-    if (dana != " ") {
-        dataset.push(dana);
+function powrot_zakresu() {
+    dataset_punktowy = [...temp_dataset_punktowy];
+    dataset = [...temp_dataset];
+    label = [...temp_label];
+}
+
+function dodaj_punkt(x, y) {
+    var dana_x = getValue(x);
+    var dana_y = getValue(y);
+    if (dana_x != "" && dana_y != "") {
+        dataset_punktowy.push({
+            x: dana_x,
+            y: dana_y
+        });
     }
+    if (dana_y != "") {
+        dataset.push(dana_y);
+    }
+    if (dana_x != "") {
+        label.push(dana_x);
+    }
+    temp_dataset_punktowy = [...dataset_punktowy];
+    temp_dataset = [...dataset];
+    temp_label = [...label];
 }
 
 function wyczysc_dane() {
@@ -51,7 +101,7 @@ function usun_ostatni_rekord() {
     dataset.pop();
 }
 
-function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, title_x, title_y, coor_x, coor_y) {
+function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, title_x, title_y) {
     var typ = getValue(typ_wykresu);
     var znacznik = getValue(znaczniki);
     var kolor = getValue(kolory);
@@ -59,8 +109,6 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
     var tytul_danych = getValue(tytul_dataset);
     var tytul_x = getValue(title_x);
     var tytul_y = getValue(title_y);
-    dodaj_x(coor_x);
-    dodaj_y(coor_y);
     if (kolor == "black") {
         kolor = 'rgb(0, 0, 0)';
     }
@@ -155,7 +203,7 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
                 data: {
                     datasets: [{
                         label: tytul_danych,
-                        data: [],
+                        data: dataset,
                         borderColor: kolor,
                         pointStyle: znacznik
                     }]
@@ -271,7 +319,7 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
                 }
             });
         }
-        else if (typ == "circle") {
+        /**else if (typ == "circle") {
             wykres = new Chart(CHART, {
                 type: 'pie',
                 data: {
@@ -330,6 +378,6 @@ function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, titl
                     }
                 }
             });
-        }
+        }**/
     }
 }

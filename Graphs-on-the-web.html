@@ -59,6 +59,9 @@
 		<div id="Wspolrzedna_Y">
 			<input type="text" id="coordinate_y" size="10">
 		</div>
+		<div id="Zatwierdz_dane">
+			<button type="button" onclick="dodaj_punkt('coordinate_x', 'coordinate_y');">Dodaj punkt</button>
+		</div>
 		<label style="font-size: 18px;">Przedział wyświetlania</label>
 		<div id="Przedzial">
 			<span style="float: left;">
@@ -68,13 +71,19 @@
 				<input type=" text" id="to" size="6">
 			</span>
 		</div>
+		<div id="Zmiana_zakresu">
+			<button type="button" onclick="zmiana_zakresu('from', 'to');">Zmiana zakresu</button>
+		</div>
+		<div id="Powrot_zakresu">
+			<button type="button" onclick="powrot_zakresu();">Cofnij zmiany</button>
+		</div>
 		<label style="font-size: 18px;">Typ wykresu</label>
 		<div id="Typ_wykresu">
 			<select id="Typy" onchange="getValue('Typy');">
 				<option value="line">Liniowy</option>
 				<option value="dot">Punktowy</option>
 				<option value="bar">Słupkowy</option>
-				<option value="circle">Kołowy</option>
+				<!--<option value="circle">Kołowy</option>-->
 			</select>
 		</div>
 		<label style="font-size: 18px;">Kolor wykresu</label>
@@ -96,7 +105,7 @@
 		</div>
 		<div id="Rysuj_wykres">
 			<button type="button"
-				onclick="draw('Typy', 'Znaczniki', 'Kolory', 'title', 'title_dataset', 'title_x', 'title_y', 'coordinate_x', 'coordinate_y');">Rysuj</button>
+				onclick="draw('Typy', 'Znaczniki', 'Kolory', 'title', 'title_dataset', 'title_x', 'title_y');">Rysuj</button>
 		</div>
 		<div id="Usun_ostatni_rekord">
 			<button type="button" onclick="usun_ostatni_rekord();">Usuń ostatni rekord</button>
