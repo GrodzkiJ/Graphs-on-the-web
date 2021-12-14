@@ -79,26 +79,44 @@ function dodaj_punkt(x, y) {
             x: dana_x,
             y: dana_y
         });
+        temp_dataset_punktowy = [...dataset_punktowy];
     }
     if (dana_y != "") {
         dataset.push(dana_y);
+        temp_dataset = [...dataset];
     }
     if (dana_x != "") {
         label.push(dana_x);
+        temp_label = [...label];
     }
-    temp_dataset_punktowy = [...dataset_punktowy];
-    temp_dataset = [...dataset];
-    temp_label = [...label];
+    if (sprawdz_powtorzenia() == true) {
+        usun_ostatni_rekord();
+        alert("Powtórka wartości. Wprowadź nową!");
+    }
 }
 
 function wyczysc_dane() {
     label = [];
     dataset = [];
+    dataset_punktowy = [];
 }
 
 function usun_ostatni_rekord() {
     label.pop();
     dataset.pop();
+    dataset_punktowy.pop();
+}
+
+function sprawdz_powtorzenia() {
+    uniqeLabel = [];
+    var powtorka = false;
+    uniqeLabel = [... new Set(label)];
+    if (uniqeLabel.length != label.length) {
+        powtorka = true;
+    }
+    console.log(label);
+    console.log(uniqeLabel);
+    return powtorka;
 }
 
 function draw(typ_wykresu, znaczniki, kolory, tytul_wykresu, tytul_dataset, title_x, title_y) {
